@@ -1,10 +1,10 @@
-# Lernkarten — Privacy Policy
+# Flashcards — Privacy Policy
 
-Statische Datenschutzerklärung für die [Lernkarten iOS App](https://github.com/cemoso88/lernkarten-ios) (Bundle `com.cembegovic.lernkarten`).
+Statische Datenschutzerklärung für die [Flashcards iOS App](https://github.com/cemoso88/lernkarten-ios) (Bundle `com.cembegovic.lernkarten`).
 
 **Live URL (GitHub Pages):** https://cemoso88.github.io/lernkarten-privacy/
 
-Diese Seite ist verlinkt in App Store Connect → Lernkarten → App Privacy → Privacy Policy URL.
+Diese Seite ist verlinkt in App Store Connect → Flashcards → App Privacy → Privacy Policy URL.
 
 ## Inhalt
 
