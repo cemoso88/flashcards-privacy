@@ -36,7 +36,7 @@
       padding: 0 20px;
     }
     main {
-      max-width: 720px;
+      max-width: 760px;
       margin: 48px auto 96px;
     }
     header {
@@ -97,6 +97,22 @@
       border-radius: 4px;
       font-size: 14px;
     }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 20px;
+      font-size: 15px;
+    }
+    th, td {
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--hairline);
+      vertical-align: top;
+    }
+    th {
+      background: var(--card);
+      font-weight: 600;
+    }
     section[hidden] { display: none; }
     footer {
       margin-top: 64px;
@@ -113,7 +129,7 @@
 <header>
   <h1>Klango</h1>
   <p class="meta">Datenschutzerklärung &middot; Privacy Policy</p>
-  <p class="meta">Stand / Effective Date: 4. Juni 2026</p>
+  <p class="meta">Stand / Effective Date: 7. Juli 2026</p>
   <div class="lang-switch">
     <a href="#de" onclick="show('de')">Deutsch</a>
     <a href="#en" onclick="show('en')">English</a>
@@ -124,8 +140,12 @@
 <section id="de">
 
   <div class="summary">
-    <strong>Kurzfassung:</strong> Die Klango-App (Bundle <code>com.cembegovic.flashcards</code>) sammelt keinerlei personenbezogene Daten.
-    Alles bleibt lokal auf deinem Gerät. Es gibt keine Server, keine Konten, keine Tracker, keine Analytics.
+    <strong>Kurzfassung:</strong> Klango (Bundle <code>com.cembegovic.flashcards</code>) ist eine
+    Karteikarten-Lern-App mit optionalem KI-Lern-Coach (Text- und Sprach-Chat, Auto-Deck-Erstellung,
+    personalisierte Lernhilfe). Deine Decks bleiben lokal auf deinem Gerät. Nur wenn du KI-Funktionen
+    aktiv nutzt, werden die betreffenden Eingaben (Text, Sprache) über unsere EU-Backend-Server an
+    KI-Auftragsverarbeiter (OpenAI, Deepgram, ElevenLabs, LiveKit) weitergegeben. Kein Werbe-Tracking,
+    keine Analytics-Profile.
   </div>
 
   <h2>1. Verantwortlicher</h2>
@@ -137,81 +157,169 @@
   <h2>2. Was die App tut</h2>
   <p>
     Klango ist eine Karteikarten-Lern-App für iPhone, iPad und Mac. Du erstellst Decks aus Begriffen
-    und Bedeutungen und lernst sie in fünf Modi (Karteikarten, Lernen, Schreiben, Test, Match).
-    Alle Inhalte und Lernfortschritte werden ausschließlich lokal auf deinem Gerät gespeichert.
+    und Bedeutungen und lernst sie in fünf Modi (Karteikarten, Lernen, Schreiben, Test, Match). Die
+    App enthält optionale KI-gestützte Funktionen: einen Lern-Coach für Text- und Sprach-Chat,
+    automatische Deck-Erstellung aus Text, Aussprache-Feedback und einen personalisierten Lernpfad,
+    der sich an dein Sprachlevel und deine Ziele anpasst.
   </p>
 
-  <h2>3. Welche Daten verarbeitet werden</h2>
-  <h3>3.1 Auf deinem Gerät (lokal)</h3>
+  <h2>3. Welche Daten wir verarbeiten</h2>
+
+  <h3>3.1 Gerätedaten</h3>
+  <ul>
+    <li>Anonyme Geräte-ID (lokal generierte UUID, kein Apple-Identifier, kein IDFA)</li>
+    <li>Betriebssystem- und App-Version</li>
+    <li>Sprach- und Regionseinstellung des Geräts</li>
+  </ul>
+
+  <h3>3.2 Profildaten (freiwillig, nur bei KI-Nutzung)</h3>
+  <ul>
+    <li>Anzeigename (frei wählbar, keine E-Mail-Pflicht)</li>
+    <li>Zielsprache(n), Muttersprache, selbst eingeschätztes Level (A1–C2)</li>
+    <li>Lernziele, Themenpräferenzen (z.&nbsp;B. „Reise", „Business", „Prüfung")</li>
+  </ul>
+
+  <h3>3.3 Nutzungsdaten der KI-Funktionen</h3>
+  <ul>
+    <li>Chat-Nachrichten zwischen dir und dem KI-Lern-Coach (Text)</li>
+    <li>Sprach-Aufnahmen im Voice-Modus (nur während des Gesprächs)</li>
+    <li>Transkripte deiner Sprach-Eingaben (Speech-to-Text)</li>
+    <li>Extrahierte „Memories" (Fakten, die die KI sich zur Personalisierung merkt, z.&nbsp;B. „Nutzer
+      lernt Spanisch für Kolumbien-Trip")</li>
+    <li>Deck-Prompt-Texte, aus denen die KI Karten generiert</li>
+  </ul>
+
+  <h3>3.4 Lokale Daten (bleiben auf deinem Gerät)</h3>
   <ul>
     <li>Deine Decks und Karten (Begriffe, Bedeutungen, Markierungen)</li>
     <li>Lernfortschritt (SuperMemo-SM-2-Werte: ease, interval, dueDate, lapses)</li>
-    <li>Deine Spracheinstellung in der App</li>
-    <li>Onboarding-Status (einmaliger Flag, ob die Welcome-Screens schon gesehen wurden)</li>
+    <li>App-Spracheinstellung, Onboarding-Flag</li>
   </ul>
   <p>
-    Die Speicherung erfolgt via Apple SwiftData in der App-Sandbox deines Geräts. Diese Daten verlassen
-    dein Gerät nicht. Beim Löschen der App werden alle Daten automatisch mitgelöscht.
+    Die Speicherung erfolgt via Apple SwiftData in der App-Sandbox deines Geräts. Diese Daten
+    verlassen dein Gerät nicht. Beim Löschen der App werden alle lokalen Daten automatisch mitgelöscht.
   </p>
 
-  <h3>3.2 An uns übertragen</h3>
-  <p><strong>Keine.</strong> Die App sendet keine Daten an uns oder an Dritte.</p>
-
-  <h3>3.3 Apple App Store</h3>
-  <p>
-    Beim Download und beim Senden von Crash-Reports verarbeitet Apple gemäß
-    <a href="https://www.apple.com/legal/privacy/de-ww/">Apples Datenschutzrichtlinie</a> bestimmte
-    Daten. Wir haben darauf keinen Einfluss und erhalten keinen Zugriff darauf, außer in stark
-    aggregierter Form (Downloadzahlen).
-  </p>
-
-  <h2>4. Tracking, Analytics, Werbung</h2>
-  <p>
-    Die App nutzt <strong>kein</strong> Tracking, <strong>keine</strong> Analytics-SDKs (kein Firebase,
-    kein Google Analytics, kein Mixpanel etc.) und <strong>keine</strong> Werbung.
-    Die App fordert keine App Tracking Transparency (ATT) Erlaubnis an, weil sie kein Tracking durchführt.
-  </p>
-
-  <h2>5. Nutzung von System-APIs (Apple Privacy Manifest)</h2>
-  <p>
-    Die App nutzt zwei Standard-iOS-APIs aus von Apple definierten "Required Reasons":
-  </p>
+  <h3>3.5 Abonnement- und Zahlungsdaten</h3>
   <ul>
-    <li><code>NSPrivacyAccessedAPICategoryUserDefaults</code> (Grund <code>CA92.1</code>):
-      App-eigene Einstellungen, ausschließlich in der App-Sandbox.</li>
-    <li><code>NSPrivacyAccessedAPICategoryFileTimestamp</code> (Grund <code>C617.1</code>):
-      Zugriff auf Datei-Zeitstempel beim Erstellen der CSV-/JSON-Export-Dateien, die du selbst auslöst.</li>
+    <li>Abo-Status, Produkt-ID, Start- und Verlängerungsdatum, Zahlstatus</li>
+    <li>Transaktions-Belege (App-Store-Receipt) zur Verifizierung</li>
   </ul>
-  <p>Beides ist im <code>PrivacyInfo.xcprivacy</code> der App deklariert.</p>
+  <p>
+    Kaufabwicklung und Zahlungsdaten (Name, Zahlungsmittel, Rechnung) verarbeitet ausschließlich
+    Apple im Rahmen deines App-Store-Kontos. Wir sehen keine Zahlungsdaten.
+  </p>
 
-  <h2>6. Datenexport (durch dich)</h2>
+  <h2>4. Zwecke der Verarbeitung</h2>
+  <ul>
+    <li>Bereitstellung der Lern-App und des lokalen SM-2-Wiederholungsalgorithmus</li>
+    <li>Bereitstellung des KI-Lern-Coachs in Text und Sprache</li>
+    <li>Automatische Deck-Generierung aus deinen Eingaben</li>
+    <li>Personalisierung der Erklärungen und Beispielsätze anhand deines Levels und deiner Ziele</li>
+    <li>Verwaltung deines Abonnements und Durchsetzung von Nutzungslimits (z.&nbsp;B. Tages-Message-Cap)</li>
+    <li>Missbrauchsschutz, Content-Sicherheit und Stabilität des Dienstes</li>
+    <li>Erfüllung gesetzlicher Aufbewahrungspflichten (z.&nbsp;B. steuerlich)</li>
+  </ul>
+
+  <h2>5. Rechtsgrundlagen (Art. 6 DSGVO)</h2>
+  <ul>
+    <li><strong>Art. 6 Abs. 1 lit. b DSGVO</strong> — Vertragserfüllung (Bereitstellung der App-Funktionen,
+      insb. der KI-Features, sowie Abwicklung deines Abonnements).</li>
+    <li><strong>Art. 6 Abs. 1 lit. f DSGVO</strong> — berechtigte Interessen (Stabilität, Missbrauchs- und
+      Content-Sicherheit, Weiterentwicklung der Lernqualität).</li>
+    <li><strong>Art. 6 Abs. 1 lit. c DSGVO</strong> — rechtliche Verpflichtungen (steuer- und
+      handelsrechtliche Aufbewahrung von Belegen).</li>
+    <li><strong>Art. 6 Abs. 1 lit. a DSGVO</strong> — Einwilligung, wo ausdrücklich erforderlich (z.&nbsp;B.
+      Mikrofonzugriff für den Voice-Modus).</li>
+  </ul>
+
+  <h2>6. Auftragsverarbeiter und Drittanbieter</h2>
+  <p>
+    Sobald du KI-Funktionen aktiv nutzt, werden die betreffenden Inhalte über unser EU-Backend an
+    folgende Auftragsverarbeiter weitergegeben. Alle Anbieter sind vertraglich zur Verarbeitung
+    ausschließlich in unserem Auftrag verpflichtet.
+  </p>
+  <table>
+    <thead>
+      <tr><th>Anbieter</th><th>Zweck</th><th>Sitz</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>OpenAI, Inc. / Anthropic PBC</td><td>Text-Chat, Deck-Generierung, Erklärungen</td><td>USA (EU-SCC)</td></tr>
+      <tr><td>Deepgram, Inc.</td><td>Speech-to-Text (Voice-Eingabe → Transkript)</td><td>USA (EU-SCC)</td></tr>
+      <tr><td>ElevenLabs, Inc.</td><td>Text-to-Speech (KI-Stimme)</td><td>USA (EU-SCC)</td></tr>
+      <tr><td>LiveKit, Inc.</td><td>Echtzeit-Audio-Streaming im Voice-Modus</td><td>USA (EU-SCC)</td></tr>
+      <tr><td>RevenueCat, Inc.</td><td>Abonnement-Verwaltung, Receipt-Validierung</td><td>USA (EU-SCC)</td></tr>
+      <tr><td>Apple Inc.</td><td>App-Store-Auslieferung, Zahlungsabwicklung, Crash-Reports</td><td>USA / Irland</td></tr>
+      <tr><td>EU-Hosting-Provider (Backend)</td><td>API- und Session-Server für die KI-Funktionen</td><td>EU</td></tr>
+    </tbody>
+  </table>
+  <p>
+    Übermittlungen in die USA erfolgen auf Basis der EU-Standardvertragsklauseln (SCC, Art. 46
+    DSGVO) und, sofern verfügbar, unter dem EU-US Data Privacy Framework.
+  </p>
+
+  <h2>7. Speicherdauer</h2>
+  <ul>
+    <li>Chat-Nachrichten und Sprach-Transkripte: bis zu deiner Löschung in der App</li>
+    <li>Extrahierte „Memories": bis zu deiner Löschung oder Deaktivierung der Memory-Funktion</li>
+    <li>Sprach-Rohaufnahmen: werden nach der Transkription unverzüglich verworfen</li>
+    <li>Abonnement-/Transaktionsbelege: 10 Jahre nach Ende des Abos (steuerliche Aufbewahrung)</li>
+    <li>Lokale Decks und Lernfortschritt: bis du sie löschst oder die App deinstallierst</li>
+  </ul>
+
+  <h2>8. Nutzung von System-APIs (Apple Privacy Manifest)</h2>
+  <p>Die App nutzt Standard-iOS-APIs aus den von Apple definierten „Required Reasons":</p>
+  <ul>
+    <li><code>NSPrivacyAccessedAPICategoryUserDefaults</code> (Grund <code>CA92.1</code>): App-eigene
+      Einstellungen, ausschließlich in der App-Sandbox.</li>
+    <li><code>NSPrivacyAccessedAPICategoryFileTimestamp</code> (Grund <code>C617.1</code>): Zugriff auf
+      Datei-Zeitstempel beim Erstellen der CSV-/JSON-Export-Dateien, die du selbst auslöst.</li>
+  </ul>
+  <p>Alles wird im <code>PrivacyInfo.xcprivacy</code> der App deklariert.</p>
+
+  <h2>9. Tracking, Analytics, Werbung</h2>
+  <p>
+    Die App nutzt <strong>keine</strong> Werbenetzwerke, <strong>keine</strong> plattformübergreifenden
+    Tracking-SDKs und <strong>fordert keine</strong> App Tracking Transparency (ATT) Erlaubnis an.
+    Ausschließlich zu Fehler- und Stabilitätszwecken werden anonymisierte Crash- und
+    Performance-Diagnosen über Apples App-Store-Infrastruktur erhoben.
+  </p>
+
+  <h2>10. Datenexport und Löschung (durch dich)</h2>
   <p>
     In den Einstellungen kannst du deine Decks und Karten als CSV- oder JSON-Datei exportieren.
-    Diese Aktion wird ausschließlich von dir ausgelöst. Die Datei wird über das System-Share-Sheet
-    weitergegeben — wohin sie geht (E-Mail, iCloud Drive, AirDrop usw.), entscheidest du.
-    Wir erhalten davon nichts.
+    Chat-Verlauf und „Memories" kannst du dort ebenfalls löschen. Für die vollständige Löschung
+    deines Backend-Profils genügt eine formlose Mail an die unten genannte Adresse; die Löschung
+    erfolgt binnen 30 Tagen.
   </p>
 
-  <h2>7. Deine Rechte (DSGVO)</h2>
+  <h2>11. Deine Rechte (DSGVO)</h2>
+  <ul>
+    <li>Art. 15 — Auskunft über die zu dir gespeicherten Daten</li>
+    <li>Art. 16 — Berichtigung unrichtiger Daten</li>
+    <li>Art. 17 — Löschung („Recht auf Vergessenwerden")</li>
+    <li>Art. 18 — Einschränkung der Verarbeitung</li>
+    <li>Art. 20 — Datenübertragbarkeit (CSV/JSON-Export)</li>
+    <li>Art. 21 — Widerspruch gegen Verarbeitung auf Basis berechtigter Interessen</li>
+    <li>Art. 77 — Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde</li>
+  </ul>
   <p>
-    Da wir keine personenbezogenen Daten über dich verarbeiten, gibt es bei uns nichts auszukunften,
-    zu berichtigen, zu löschen oder zu übertragen. Falls du dennoch Fragen hast, schreib uns an die
-    oben genannte Kontaktadresse.
+    Zur Ausübung deiner Rechte genügt eine Mail an die unten stehende Adresse.
   </p>
 
-  <h2>8. Kinder</h2>
+  <h2>12. Kinder</h2>
   <p>
-    Die App ist altersmäßig als 4+ eingestuft und für alle Altersklassen geeignet. Sie sammelt keine
-    Daten — auch keine von Kindern.
+    Die App ist altersmäßig als 4+ eingestuft. Für Nutzer unter 16 Jahren empfehlen wir die
+    Zustimmung eines Erziehungsberechtigten, bevor KI-Funktionen aktiviert werden.
   </p>
 
-  <h2>9. Änderungen dieser Erklärung</h2>
+  <h2>13. Änderungen dieser Erklärung</h2>
   <p>
     Wenn sich der Funktionsumfang der App relevant ändert, aktualisieren wir diese Seite. Das
     Effective Date oben am Anfang gibt die jeweils gültige Fassung an.
   </p>
 
-  <h2>10. Kontakt</h2>
+  <h2>14. Kontakt</h2>
   <p>
     Fragen zur App oder zum Datenschutz:
     <a href="mailto:cem.hasanbeyoglu@hotmail.com">cem.hasanbeyoglu@hotmail.com</a>
@@ -222,8 +330,11 @@
 <section id="en" hidden>
 
   <div class="summary">
-    <strong>TL;DR:</strong> The Klango app (bundle <code>com.cembegovic.flashcards</code>) does not collect any personal data.
-    Everything stays local on your device. No servers, no accounts, no trackers, no analytics.
+    <strong>TL;DR:</strong> Klango (bundle <code>com.cembegovic.flashcards</code>) is a flashcard
+    learning app with an optional AI learning coach (text and voice chat, auto-deck creation,
+    personalized guidance). Your decks stay local on your device. Only when you actively use the AI
+    features are the relevant inputs (text, voice) sent through our EU backend to AI processors
+    (OpenAI, Deepgram, ElevenLabs, LiveKit). No advertising trackers, no analytics profiles.
   </div>
 
   <h2>1. Data Controller</h2>
@@ -235,77 +346,166 @@
   <h2>2. What the App Does</h2>
   <p>
     Klango is a flashcard learning app for iPhone, iPad and Mac. You build decks of terms and
-    definitions and study them in five modes (Flashcards, Learn, Write, Test, Match). All content
-    and learning progress is stored locally on your device only.
+    definitions and study them in five modes (Flashcards, Learn, Write, Test, Match). The app also
+    provides optional AI-powered features: a learning coach for text and voice chat, automatic deck
+    generation from text, pronunciation feedback and a personalized learning path adapted to your
+    language level and goals.
   </p>
 
-  <h2>3. What Data is Processed</h2>
-  <h3>3.1 On your device (local only)</h3>
+  <h2>3. Data We Process</h2>
+
+  <h3>3.1 Device data</h3>
+  <ul>
+    <li>Anonymous device ID (locally generated UUID, no Apple identifier, no IDFA)</li>
+    <li>Operating system and app version</li>
+    <li>Device language and region setting</li>
+  </ul>
+
+  <h3>3.2 Profile data (optional, only if you use AI features)</h3>
+  <ul>
+    <li>Display name (free-form, no e-mail required)</li>
+    <li>Target language(s), native language, self-assessed level (A1–C2)</li>
+    <li>Learning goals, topic preferences (e.g. "travel", "business", "exam")</li>
+  </ul>
+
+  <h3>3.3 AI-feature usage data</h3>
+  <ul>
+    <li>Chat messages between you and the AI learning coach (text)</li>
+    <li>Voice recordings while a voice session is active</li>
+    <li>Transcripts of your voice input (speech-to-text)</li>
+    <li>Extracted "memories" (facts the AI retains for personalization, e.g. "user learning Spanish
+      for a Colombia trip")</li>
+    <li>Deck prompt texts you provide for AI-generated cards</li>
+  </ul>
+
+  <h3>3.4 Local data (never leaves your device)</h3>
   <ul>
     <li>Your decks and cards (terms, definitions, stars)</li>
     <li>Learning progress (SuperMemo SM-2 values: ease, interval, dueDate, lapses)</li>
-    <li>Your in-app language preference</li>
-    <li>Onboarding state (one-time flag whether the welcome screens were shown)</li>
+    <li>In-app language preference, onboarding flag</li>
   </ul>
   <p>
-    Storage is handled by Apple SwiftData inside the app sandbox on your device. This data never
-    leaves your device. Deleting the app removes all data automatically.
+    Storage is handled by Apple SwiftData inside the app sandbox. This data never leaves your
+    device. Deleting the app removes all local data automatically.
   </p>
 
-  <h3>3.2 Transmitted to us</h3>
-  <p><strong>None.</strong> The app does not send any data to us or any third party.</p>
-
-  <h3>3.3 Apple App Store</h3>
-  <p>
-    Apple processes certain data on download and crash reporting per
-    <a href="https://www.apple.com/legal/privacy/en-ww/">Apple's privacy policy</a>. We have no
-    control over this and only receive heavily aggregated information (download counts).
-  </p>
-
-  <h2>4. Tracking, Analytics, Advertising</h2>
-  <p>
-    The app uses <strong>no</strong> tracking, <strong>no</strong> analytics SDKs (no Firebase,
-    Google Analytics, Mixpanel etc.) and <strong>no</strong> advertising.
-    The app does not request App Tracking Transparency (ATT) permission because it does not track.
-  </p>
-
-  <h2>5. System API Usage (Apple Privacy Manifest)</h2>
-  <p>The app uses two standard iOS APIs from Apple's defined "Required Reasons":</p>
+  <h3>3.5 Subscription and payment data</h3>
   <ul>
-    <li><code>NSPrivacyAccessedAPICategoryUserDefaults</code> (reason <code>CA92.1</code>):
-      App's own settings, only within the app sandbox.</li>
-    <li><code>NSPrivacyAccessedAPICategoryFileTimestamp</code> (reason <code>C617.1</code>):
-      Access file timestamps when creating CSV / JSON export files that you initiate.</li>
+    <li>Subscription state, product ID, start and renewal dates, payment status</li>
+    <li>Transaction receipts (App Store receipt) for verification</li>
   </ul>
-  <p>Both are declared in the app's <code>PrivacyInfo.xcprivacy</code>.</p>
-
-  <h2>6. Data Export (initiated by you)</h2>
   <p>
-    In settings, you can export your decks and cards as a CSV or JSON file. This action is
-    initiated solely by you. The file is handed off via the system share sheet — where it goes
-    (mail, iCloud Drive, AirDrop, etc.) is your choice. We receive nothing.
+    Actual payment processing (name, payment method, invoice) is handled exclusively by Apple as
+    part of your App Store account. We do not see payment data.
   </p>
 
-  <h2>7. Your Rights (GDPR)</h2>
+  <h2>4. Purposes of Processing</h2>
+  <ul>
+    <li>Providing the learning app and the local SM-2 spaced-repetition algorithm</li>
+    <li>Providing the AI learning coach in text and voice</li>
+    <li>Automatic deck generation from your inputs</li>
+    <li>Personalizing explanations and example sentences based on your level and goals</li>
+    <li>Managing your subscription and enforcing usage limits (e.g. daily message cap)</li>
+    <li>Abuse protection, content safety and service stability</li>
+    <li>Compliance with legal retention obligations (e.g. tax)</li>
+  </ul>
+
+  <h2>5. Legal Bases (Art. 6 GDPR)</h2>
+  <ul>
+    <li><strong>Art. 6(1)(b) GDPR</strong> — contract performance (providing the app features, in
+      particular the AI features, and handling your subscription).</li>
+    <li><strong>Art. 6(1)(f) GDPR</strong> — legitimate interests (stability, abuse and content
+      safety, improving learning quality).</li>
+    <li><strong>Art. 6(1)(c) GDPR</strong> — legal obligations (tax and commercial-law retention of
+      receipts).</li>
+    <li><strong>Art. 6(1)(a) GDPR</strong> — consent, where explicitly required (e.g. microphone
+      access for voice mode).</li>
+  </ul>
+
+  <h2>6. Processors and Third Parties</h2>
   <p>
-    Since we don't process any personal data about you, there is nothing on our side to disclose,
-    correct, delete or transfer. If you still have questions, please contact us at the address
-    above.
+    Once you actively use the AI features, the relevant content is passed through our EU backend
+    to the following processors. All providers are contractually bound to process data only on our
+    behalf.
+  </p>
+  <table>
+    <thead>
+      <tr><th>Provider</th><th>Purpose</th><th>Location</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>OpenAI, Inc. / Anthropic PBC</td><td>Text chat, deck generation, explanations</td><td>USA (EU SCC)</td></tr>
+      <tr><td>Deepgram, Inc.</td><td>Speech-to-text (voice input → transcript)</td><td>USA (EU SCC)</td></tr>
+      <tr><td>ElevenLabs, Inc.</td><td>Text-to-speech (AI voice)</td><td>USA (EU SCC)</td></tr>
+      <tr><td>LiveKit, Inc.</td><td>Real-time audio streaming in voice mode</td><td>USA (EU SCC)</td></tr>
+      <tr><td>RevenueCat, Inc.</td><td>Subscription management, receipt validation</td><td>USA (EU SCC)</td></tr>
+      <tr><td>Apple Inc.</td><td>App Store distribution, payment processing, crash reports</td><td>USA / Ireland</td></tr>
+      <tr><td>EU hosting provider (backend)</td><td>API and session servers for the AI features</td><td>EU</td></tr>
+    </tbody>
+  </table>
+  <p>
+    Transfers to the USA are based on the EU Standard Contractual Clauses (SCC, Art. 46 GDPR) and,
+    where available, the EU-US Data Privacy Framework.
   </p>
 
-  <h2>8. Children</h2>
+  <h2>7. Retention</h2>
+  <ul>
+    <li>Chat messages and voice transcripts: until you delete them in the app</li>
+    <li>Extracted "memories": until you delete them or disable the memory feature</li>
+    <li>Raw voice recordings: discarded immediately after transcription</li>
+    <li>Subscription / transaction receipts: 10 years after the end of the subscription (tax law)</li>
+    <li>Local decks and learning progress: until you delete them or uninstall the app</li>
+  </ul>
+
+  <h2>8. System API Usage (Apple Privacy Manifest)</h2>
+  <p>The app uses standard iOS APIs under Apple's defined "Required Reasons":</p>
+  <ul>
+    <li><code>NSPrivacyAccessedAPICategoryUserDefaults</code> (reason <code>CA92.1</code>): app's own
+      settings, only within the app sandbox.</li>
+    <li><code>NSPrivacyAccessedAPICategoryFileTimestamp</code> (reason <code>C617.1</code>): access
+      file timestamps when creating CSV / JSON export files that you initiate.</li>
+  </ul>
+  <p>All of this is declared in the app's <code>PrivacyInfo.xcprivacy</code>.</p>
+
+  <h2>9. Tracking, Analytics, Advertising</h2>
   <p>
-    The app is rated 4+ and suitable for all ages. It collects no data — including none from
-    children.
+    The app uses <strong>no</strong> advertising networks, <strong>no</strong> cross-platform
+    tracking SDKs and <strong>does not request</strong> App Tracking Transparency (ATT) permission.
+    Only anonymized crash and performance diagnostics are collected via Apple's App Store
+    infrastructure for stability purposes.
   </p>
 
-  <h2>9. Changes to This Policy</h2>
+  <h2>10. Data Export and Deletion (initiated by you)</h2>
+  <p>
+    In settings, you can export your decks and cards as a CSV or JSON file. You can also delete
+    your chat history and "memories" there. For a full deletion of your backend profile, an
+    informal e-mail to the address below is sufficient; deletion happens within 30 days.
+  </p>
+
+  <h2>11. Your Rights (GDPR)</h2>
+  <ul>
+    <li>Art. 15 — right of access</li>
+    <li>Art. 16 — rectification of inaccurate data</li>
+    <li>Art. 17 — erasure ("right to be forgotten")</li>
+    <li>Art. 18 — restriction of processing</li>
+    <li>Art. 20 — data portability (CSV / JSON export)</li>
+    <li>Art. 21 — objection to processing based on legitimate interests</li>
+    <li>Art. 77 — right to lodge a complaint with a supervisory authority</li>
+  </ul>
+  <p>To exercise your rights, an e-mail to the address below is sufficient.</p>
+
+  <h2>12. Children</h2>
+  <p>
+    The app is rated 4+. For users under 16, we recommend the consent of a parent or guardian
+    before enabling the AI features.
+  </p>
+
+  <h2>13. Changes to This Policy</h2>
   <p>
     If the app's functionality changes materially, we will update this page. The Effective Date at
     the top indicates the currently applicable version.
   </p>
 
-  <h2>10. Contact</h2>
+  <h2>14. Contact</h2>
   <p>
     Questions about the app or privacy:
     <a href="mailto:cem.hasanbeyoglu@hotmail.com">cem.hasanbeyoglu@hotmail.com</a>
@@ -324,7 +524,6 @@
     document.getElementById('en').hidden = (lang !== 'en');
     history.replaceState(null, '', '#' + lang);
   }
-  // Auto-switch based on hash or browser language
   (function init() {
     var h = (location.hash || '').replace('#','');
     if (h === 'de' || h === 'en') { show(h); return; }
